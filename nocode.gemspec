@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.files       = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   s.bindir      = 'exe'
   s.executables = %w[nocode]
+  s.homepage    = 'https://github.com/mattruggio/nocode'
   s.license     = 'MIT'
   s.metadata    = {
     'bug_tracker_uri' => 'https://github.com/mattruggio/nocode/issues',
