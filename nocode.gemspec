@@ -17,8 +17,14 @@ Gem::Specification.new do |s|
   s.bindir      = 'exe'
   s.executables = %w[nocode]
   s.license     = 'MIT'
-
-  s.metadata['rubygems_mfa_required'] = 'true'
+  s.metadata    = {
+    'bug_tracker_uri' => 'https://github.com/mattruggio/nocode/issues',
+    'changelog_uri' => 'https://github.com/mattruggio/nocode/blob/main/CHANGELOG.md',
+    'documentation_uri' => 'https://www.rubydoc.info/gems/nocode',
+    'homepage_uri' => s.homepage,
+    'source_code_uri' => s.homepage,
+    'rubygems_mfa_required' => 'true'
+  }
 
   s.required_ruby_version = '>= 2.6'
 
