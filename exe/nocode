@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler/setup'
+require 'nocode'
+
+path = ARGV[0]
+
+if path.to_s.empty?
+  puts 'Usage: nocode <path_to_job_yaml>'
+  exit
+end
+
+puts '<Implementation goes here>'
