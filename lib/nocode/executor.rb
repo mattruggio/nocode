@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require_relative 'context'
-require_relative 'object_template'
 require_relative 'step_registry'
 
 module Nocode
+  # Manages the lifecycle and executes a job.
   class Executor
     attr_reader :yaml, :io
 
@@ -38,7 +38,7 @@ module Nocode
     private
 
     def make_step(step, context)
-      step       = ObjectTemplate.new(step).evaluate(context.to_h)
+      step       = Util::ObjectTemplate.new(step).evaluate(context.to_h)
       type       = step['type'].to_s
       name       = step['name'].to_s
       options    = step['options'] || {}

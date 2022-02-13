@@ -2,6 +2,7 @@
 
 module Nocode
   module Util
+    # Hand
     module Arrayable
       def array(value)
         if value.is_a?(Hash)

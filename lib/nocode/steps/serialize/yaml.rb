@@ -3,15 +3,15 @@
 module Nocode
   module Steps
     module Serialize
-      # Take the contents of a register and serialize it as JSON.  The serialized JSON
+      # Take the contents of a register and serialize it as YAML.  The serialized YAML
       # will override the register specified.
-      class Json < Step
+      class Yaml < Step
         option :register
 
         def perform
           input = registers[register_option]
 
-          registers[register_option] = input.to_json
+          registers[register_option] = input.to_yaml
         end
       end
     end

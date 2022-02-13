@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Nocode::ObjectTemplate do
+describe Nocode::Util::ObjectTemplate do
   subject(:template) { described_class.new(object) }
 
   describe '#evaluate' do

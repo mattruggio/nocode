@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Nocode
+  # Describes the environment for each running step.  An instance is initialized when a job
+  # kicks off and then is passed from step to step.
   class Context
     attr_reader :io, :parameters, :registers
 

@@ -3,6 +3,7 @@
 module Nocode
   module Steps
     module Io
+      # Read a file from disk and place its contents in a register.
       class Read < Step
         option :path,
                :register

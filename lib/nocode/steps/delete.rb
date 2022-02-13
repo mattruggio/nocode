@@ -2,6 +2,7 @@
 
 module Nocode
   module Steps
+    # Remove a register completely.
     class Delete < Step
       option :register
 

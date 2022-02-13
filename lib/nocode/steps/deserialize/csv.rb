@@ -3,6 +3,7 @@
 module Nocode
   module Steps
     module Deserialize
+      # take a specified register and parse it as a CSV to produce an array of hashes.
       class Csv < Step
         option :register
 

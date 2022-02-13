@@ -2,6 +2,11 @@
 
 module Nocode
   module Util
+    # Takes in an expression and interpolates in any parameters using << >> notation.
+    # For example:
+    #   input = { 'person' => 'hops' }
+    #   Nocode::Util::StringTemplate.new("Hello, << person.name >>!").evaluate(input)
+    # Should produce: "Hello, hops!"
     class StringTemplate
       LEFT_TOKEN  = '<<'
       RIGHT_TOKEN = '>>'
@@ -11,7 +16,7 @@ module Nocode
       attr_reader :expression
 
       def initialize(expression)
-        @expression = expression
+        @expression = expression.to_s
 
         freeze
       end

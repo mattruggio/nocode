@@ -2,6 +2,9 @@
 
 module Nocode
   module Util
+    # Create a type -> class constant interface.  Classes can be registered as types.  Types
+    # are snake-cased while class names are stored as pascal-cased.  Then constant! can be called
+    # to retrieve the class constant by type.
     class ClassRegistry
       extend Forwardable
 

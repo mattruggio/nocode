@@ -2,6 +2,7 @@
 
 module Nocode
   module Util
+    # A hash-like object which ensures all keys are strings.
     class Dictionary
       extend Forwardable
 

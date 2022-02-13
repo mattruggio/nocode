@@ -2,6 +2,7 @@
 
 module Nocode
   module Util
+    # Loads a directory full of Ruby classes and returns their relative paths.
     class ClassLoader
       EXTENSION = '.rb'
 

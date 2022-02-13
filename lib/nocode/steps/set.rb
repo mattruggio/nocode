@@ -2,6 +2,7 @@
 
 module Nocode
   module Steps
+    # Set a register's value to the value option specified.
     class Set < Step
       option :register, :value
 

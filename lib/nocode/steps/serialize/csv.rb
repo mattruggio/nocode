@@ -3,6 +3,8 @@
 module Nocode
   module Steps
     module Serialize
+      # Take the contents of a register and create a CSV out of its contents.  The CSV contents
+      # will override the register specified.
       class Csv < Step
         option :register
 

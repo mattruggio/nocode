@@ -2,6 +2,20 @@
 
 module Nocode
   module Util
+    # Add on a DSL for classes.  The DSL allows for a new class-level keyword called 'option'
+    # which can be used to describe what metadata values are important.  Then instances
+    # can reference those option's values using magic _option methods.  For example:
+    #
+    # class Animal
+    #   include Optionable
+    #   option :type
+    #   attr_writer :options
+    # end
+    #
+    # animal = Animal.new
+    # animal.options = { 'type' => 'dog' }
+    #
+    # animal.type_option # -> should return 'dog'
     module Optionable
       def self.included(klass)
         klass.extend(ClassMethods)

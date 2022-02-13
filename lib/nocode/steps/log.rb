@@ -2,6 +2,7 @@
 
 module Nocode
   module Steps
+    # Simply output the passed in message into the outputted log.
     class Log < Step
       option :message
 

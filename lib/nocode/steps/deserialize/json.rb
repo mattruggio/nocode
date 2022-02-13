@@ -3,6 +3,7 @@
 module Nocode
   module Steps
     module Deserialize
+      # take a specified register and parse it as JSON to produce Ruby object(s).
       class Json < Step
         option :register
 

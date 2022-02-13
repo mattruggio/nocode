@@ -3,6 +3,7 @@
 module Nocode
   module Steps
     module Io
+      # Write the contents of a register to disk.
       class Write < Step
         option :path,
                :register

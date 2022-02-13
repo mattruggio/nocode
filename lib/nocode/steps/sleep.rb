@@ -2,6 +2,7 @@
 
 module Nocode
   module Steps
+    # Sleep for an arbitrary number of seconds.
     class Sleep < Step
       option :seconds
 
