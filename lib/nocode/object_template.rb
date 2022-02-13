@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Nocode
-  class OptionsTemplate
+  class ObjectTemplate
     attr_reader :object
 
     def initialize(object)

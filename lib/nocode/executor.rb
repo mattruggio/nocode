@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'context'
-require_relative 'options_template'
+require_relative 'object_template'
 require_relative 'step_registry'
 
 module Nocode
@@ -38,14 +38,14 @@ module Nocode
     private
 
     def make_step(step, context)
-      type             = step['type'].to_s
-      name             = step['name'].to_s
-      options          = step['options'] || {}
-      compiled_options = OptionsTemplate.new(options).evaluate(context.to_h)
-      step_class       = StepRegistry.constant!(type)
+      step       = ObjectTemplate.new(step).evaluate(context.to_h)
+      type       = step['type'].to_s
+      name       = step['name'].to_s
+      options    = step['options'] || {}
+      step_class = StepRegistry.constant!(type)
 
       step_class.new(
-        options: Util::Dictionary.new(compiled_options),
+        options: Util::Dictionary.new(options),
         context: context,
         name: name,
         type: type

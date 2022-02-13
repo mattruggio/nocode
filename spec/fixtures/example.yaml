@@ -3,6 +3,8 @@ parameters:
   first_name: Hops
   last_name: The Bunny
   path: message.txt
+  copy_step: copy
+  type_key: type
 
 steps:
   - type: set
@@ -13,7 +15,7 @@ steps:
   - type: sleep
     options:
       seconds: 0.2
-  - type: copy
+  - << parameters.type_key >>: << parameters.copy_step >>
     options:
       from_register: << parameters.register_name >>
       to_register: << parameters.register_name >>_copy
