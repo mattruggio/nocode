@@ -111,16 +111,16 @@ Note: ensure you have proper authorization before trying to publish new versions
 
 After code changes have successfully gone through the Pull Request review process then the following steps should be followed for publishing new versions:
 
-1. Merge Pull Request into master
+1. Merge Pull Request into main
 2. Update `version.rb` using [semantic versioning](https://semver.org/)
 3. Install dependencies: `bundle`
 4. Update `CHANGELOG.md` with release notes
-5. Commit & push master to remote and ensure CI builds master successfully
+5. Commit & push main to remote and ensure CI builds main successfully
 6. Run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Code of Conduct
 
-Everyone interacting in this codebase, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/mattruggio/nocode/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in this codebase, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/mattruggio/nocode/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
