@@ -25,3 +25,5 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rake
+    - name: Security audit dependencies
+      run: bin/bundler-audit check --update

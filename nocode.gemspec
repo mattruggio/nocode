@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.6'
 
+  s.add_development_dependency('bundler-audit')
   s.add_development_dependency('guard-rspec')
   s.add_development_dependency('pry')
   s.add_development_dependency('rake')
