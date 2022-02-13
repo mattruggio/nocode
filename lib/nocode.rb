@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require 'benchmark'
+require 'csv'
 require 'fileutils'
+require 'json'
 require 'singleton'
 require 'time'
 require 'yaml'

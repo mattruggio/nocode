@@ -1,0 +1,20 @@
+parameters:
+  input_filename: people.json
+  output_filename: people.csv
+
+steps:
+  - type: io/read
+    name: READ FILE
+    options:
+      path:
+        - spec
+        - fixtures
+        - << parameters.input_filename >>
+  - type: deserialize/json
+  - type: serialize/csv
+  - type: io/write
+    options:
+      path:
+        - tmp
+        - spec
+        - << parameters.output_filename >>

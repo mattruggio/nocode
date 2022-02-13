@@ -24,13 +24,56 @@ bundle add nocode
 
 ## Examples
 
-### A Simple File Copier
-
-TODO
+Create a file called `nocode-csv-to-json.yaml`:
 
 ### CSV-to-JSON File Converter
 
-TODO
+````yaml
+parameters:
+  input_filename: input.csv
+  output_filename: output.json
+
+steps:
+  - type: io/read
+    name: READ FILE
+    options:
+      path:
+        - files
+        - << parameters.input_filename >>
+  - type: deserialize/csv
+  - type: serialize/json
+  - type: io/write
+    options:
+      path:
+        - files
+        - << parameters.output_filename >>
+````
+
+Create csv file at: `files/input.csv`
+
+Execute in Ruby:
+
+````ruby
+path = Pathname.new('nocode-csv-to-json.yaml')
+
+Nocode.execute(path)
+````
+
+Or use bundler:
+
+````zsh
+bundle exec nocode `nocode-csv-to-json.yaml
+````
+
+A file should have been created at: `files/output.json`.
+
+Notes:
+
+* Path can be an array or a string.  If its an array then the environment's path separator will be used.
+* The `name` job key is optional.  If present then it will print out on the log.
+* Parameter values can be interpolated with keys and values using `<< parameters.key >>` syntax
+
+
 
 ## Contributing
 
