@@ -26,4 +26,4 @@ jobs:
     - name: Run tests
       run: bundle exec rake
     - name: Security audit dependencies
-      run: bin/bundler-audit check --update
+      run: bundle exec bundler-audit check --update
