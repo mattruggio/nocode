@@ -11,4 +11,4 @@ if path.to_s.empty?
   exit
 end
 
-puts '<Implementation goes here>'
+Nocode.execute(Pathname.new(path))

@@ -1,0 +1,43 @@
+parameters:
+  register_name: message
+  first_name: Hops
+  last_name: The Bunny
+  path: message.txt
+
+steps:
+  - type: set
+    name: Set Message
+    options:
+      register: << parameters.register_name >>
+      value: Hello, << parameters.first_name >> << parameters.last_name >>!
+  - type: sleep
+    options:
+      seconds: 0.2
+  - type: copy
+    options:
+      from_register: << parameters.register_name >>
+      to_register: << parameters.register_name >>_copy
+  - type: delete
+    options:
+      register: << parameters.register_name >>
+      value: Hello World!
+  - type: log
+    options:
+      message: 'The message_copy register contains: << registers.message_copy >>'
+  - type: io/write
+    options:
+      register: << parameters.register_name >>_copy
+      path:
+        - tmp
+        - spec
+        - << parameters.path >>
+  - type: io/read
+    options:
+      register: other_<< parameters.register_name >>
+      path:
+        - tmp
+        - spec
+        - << parameters.path >>
+  - type: log
+    options:
+      message: 'The other_<< parameters.register_name >> register contains: << registers.other_message >>'
