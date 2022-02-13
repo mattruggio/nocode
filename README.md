@@ -2,9 +2,7 @@
 
 #### Execute Ruby code through YAML
 
-[![Gem Version](https://badge.fury.io/rb/nocode.svg)](https://badge.fury.io/rb/nocode)
-
-[![Ruby Gem CI](https://github.com/mattruggio/nocode/actions/workflows/rubygem.yml/badge.svg)](https://github.com/mattruggio/nocode/actions/workflows/rubygem.yml)
+[![Gem Version](https://badge.fury.io/rb/nocode.svg)](https://badge.fury.io/rb/nocode) [![Ruby Gem CI](https://github.com/mattruggio/nocode/actions/workflows/rubygem.yml/badge.svg)](https://github.com/mattruggio/nocode/actions/workflows/rubygem.yml)
 
 This is a proof of concept showing how a YAML interface could be draped over arbitrary Ruby code.  The YAML contains a series of steps with each step mapping to a specific Ruby class.  The Ruby classes just have one responsibility: to implement #perform.
 
