@@ -5,6 +5,24 @@ require 'spec_helper'
 describe Nocode::Util::Dictionary do
   subject(:dictionary) { described_class.new }
 
+  describe 'Dictionary#ensure' do
+    it 'returns a Dictionary instance if a hash is passed in' do
+      input = { a: '1' }
+
+      actual = described_class.ensure(input)
+
+      expect(actual).to be_a(described_class)
+    end
+
+    it 'returns if a Dictionary instance is passed in' do
+      input = described_class.new
+
+      actual = described_class.ensure(input)
+
+      expect(actual).to equal(input)
+    end
+  end
+
   describe '#[] and #[]=' do
     it 'symbol keys work as string keys' do
       key             = :abc

@@ -17,7 +17,7 @@ module Nocode
     end
 
     def parameter(key)
-      parameters(key)
+      parameters[key]
     end
 
     def to_h
