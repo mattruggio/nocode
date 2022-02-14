@@ -10,8 +10,8 @@ module Nocode
   class StepRegistry < Util::ClassRegistry
     include Singleton
 
-    PREFIX = 'Nocode::Steps::'
-    DIR    = File.join(__dir__, 'steps')
+    CLASS_PREFIX = 'Nocode::Steps::'
+    DIR          = File.join(__dir__, 'steps')
 
     class << self
       extend Forwardable
@@ -27,7 +27,7 @@ module Nocode
       files_loaded = Util::ClassLoader.new(DIR).load!
 
       # Class the parent to load up the registry with the files we found.
-      load(files_loaded, PREFIX)
+      load(files_loaded, class_prefix: CLASS_PREFIX)
     end
   end
 

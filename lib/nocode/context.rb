@@ -33,5 +33,13 @@ module Nocode
         PARAMETERS_KEY => parameters
       }
     end
+
+    def log_line
+      log('-' * 50)
+    end
+
+    def log(msg)
+      io.puts(msg)
+    end
   end
 end

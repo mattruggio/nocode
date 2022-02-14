@@ -31,33 +31,25 @@ module Nocode
         registers: registers
       )
 
-      log_title
+      log_title(context)
 
       StepsExecutor.new(context: context, steps: steps).execute
 
-      log("Ended: #{DateTime.now}")
-      log_line
+      context.log("Ended: #{DateTime.now}")
+      context.log_line
 
       context
     end
 
     private
 
-    def log_title
-      log_line
+    def log_title(context)
+      context.log_line
 
-      log('Nocode Execution')
-      log("Started: #{DateTime.now}")
+      context.log('Nocode Execution')
+      context.log("Started: #{DateTime.now}")
 
-      log_line
-    end
-
-    def log_line
-      log('-' * 50)
-    end
-
-    def log(msg)
-      io.puts(msg)
+      context.log_line
     end
   end
 end

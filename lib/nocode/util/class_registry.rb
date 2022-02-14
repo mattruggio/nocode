@@ -20,13 +20,13 @@ module Nocode
         freeze
       end
 
-      def load(types, prefix = '')
+      def load(types, class_prefix: '', type_prefix: '')
         types.each do |type|
           pascal_cased = type.split(File::SEPARATOR).map do |part|
             part.split('_').collect(&:capitalize).join
           end.join('::')
 
-          register(type, "#{prefix}#{pascal_cased}")
+          register("#{type_prefix}#{type}", "#{class_prefix}#{pascal_cased}")
         end
 
         self

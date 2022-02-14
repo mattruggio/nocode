@@ -1,3 +1,8 @@
+#### 0.0.7 - February 13th, 2022
+
+* Move shared logging logic to context (until a first class log writer emerges).
+* Provide type_prefix option for class_registry
+
 #### 0.0.6 - February 13th, 2022
 
 * Expose registers to main YAML configuration.

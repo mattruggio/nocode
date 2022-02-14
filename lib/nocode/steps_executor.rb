@@ -13,7 +13,7 @@ module Nocode
 
     attr_reader :context, :steps
 
-    def_delegators :context, :io
+    def_delegators :context, :log_line, :log
 
     def initialize(context:, steps:)
       @context = context
@@ -32,9 +32,6 @@ module Nocode
 
     private
 
-    # TODO: It could be better encapsulated to move the evaluation logic into the step itself
-    # and let it deal with compilation.  This may call for re-working the lifecycle of the Step
-    # class so I will temporarily defer this refactoring.
     def make_step(step)
       evaluated_step = Util::ObjectTemplate.new(step).evaluate(context.to_h)
       type           = evaluated_step[TYPE_KEY].to_s
@@ -66,14 +63,6 @@ module Nocode
       log("Completed in #{time_in_seconds.round(3)} second(s)")
 
       log_line
-    end
-
-    def log_line
-      log('-' * 50)
-    end
-
-    def log(msg)
-      io.puts(msg)
     end
   end
 end
