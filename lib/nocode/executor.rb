@@ -6,6 +6,12 @@ require_relative 'step_registry'
 module Nocode
   # Manages the lifecycle and executes a job.
   class Executor
+    NAME_KEY       = 'name'
+    OPTIONS_KEY    = 'options'
+    PARAMETERS_KEY = 'parameters'
+    STEPS_KEY      = 'steps'
+    TYPE_KEY       = 'type'
+
     attr_reader :yaml, :io
 
     def initialize(yaml, io: $stdout)
@@ -17,8 +23,8 @@ module Nocode
     end
 
     def execute
-      steps      = yaml['steps'] || []
-      parameters = yaml['parameters'] || {}
+      steps      = yaml[STEPS_KEY] || []
+      parameters = yaml[PARAMETERS_KEY] || {}
       context    = Context.new(io: io, parameters: parameters)
 
       log_title
@@ -39,9 +45,9 @@ module Nocode
 
     def make_step(step, context)
       step       = Util::ObjectTemplate.new(step).evaluate(context.to_h)
-      type       = step['type'].to_s
-      name       = step['name'].to_s
-      options    = step['options'] || {}
+      type       = step[TYPE_KEY].to_s
+      name       = step[NAME_KEY].to_s
+      options    = step[OPTIONS_KEY] || {}
       step_class = StepRegistry.constant!(type)
 
       step_class.new(

@@ -9,7 +9,7 @@ describe Nocode::Steps::Serialize::Yaml do
   let(:context)   { Nocode::Context.new(registers: registers) }
   let(:options)   { { 'register' => 'a' } }
 
-  it 'copies register value to another register' do
+  it 'serializes register contents as YAML' do
     step.perform
 
     expected = <<~YAML

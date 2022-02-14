@@ -1,0 +1,48 @@
+parameters:
+  input_filename: people.csv
+  input_filename2: people2.csv
+  output_filename: people3.csv
+
+steps:
+  - type: io/read
+    name: READ FILE << parameters.input_filename >>
+    options:
+      register: file1
+      path:
+        - spec
+        - fixtures
+        - << parameters.input_filename >>
+  - type: deserialize/csv
+    options:
+      register: file1
+
+  - type: io/read
+    name: READ FILE << parameters.input_filename2 >>
+    options:
+      register: file2
+      path:
+        - spec
+        - fixtures
+        - << parameters.input_filename2 >>
+  - type: deserialize/csv
+    options:
+      register: file2
+
+  - type: dataset/coalesce
+    options:
+      from_registers:
+        - file1
+        - file2
+      to_register: files
+
+  - type: serialize/csv
+    options:
+      register: files
+
+  - type: io/write
+    options:
+      register: files
+      path:
+        - tmp
+        - spec
+        - << parameters.output_filename >>

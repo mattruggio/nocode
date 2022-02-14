@@ -15,7 +15,7 @@ describe Nocode::Steps::Deserialize::Json do
   let(:context)   { Nocode::Context.new(registers: registers) }
   let(:options)   { { 'register' => 'a' } }
 
-  it 'copies register value to another register' do
+  it 'deserializes register contents as JSON' do
     step.perform
 
     expected = [

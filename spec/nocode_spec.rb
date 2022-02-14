@@ -79,4 +79,24 @@ describe Nocode do
       expect(registers.values).to eq(expected)
     end
   end
+
+  describe 'merge_csvs.yaml' do
+    let(:path) { File.join('spec', 'fixtures', 'merge_csvs.yaml') }
+
+    it 'produces files' do
+      described_class.execute(pathname, io: io)
+
+      path = File.join('tmp', 'spec', 'people3.csv')
+
+      expect(File.exist?(path)).to be true
+    end
+
+    it 'produces registers' do
+      context   = described_class.execute(pathname, io: io)
+      actual    = context.register('files')
+      expected  = "id,name\n1,bozo\n2,hops\n3,rizzo\n4,vader\n"
+
+      expect(actual).to eq(expected)
+    end
+  end
 end

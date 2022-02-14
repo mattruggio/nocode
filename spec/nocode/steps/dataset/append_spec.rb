@@ -2,19 +2,17 @@
 
 require 'spec_helper'
 
-describe Nocode::Steps::Deserialize::Csv do
+describe Nocode::Steps::Dataset::Append do
   subject(:step)  { described_class.new(options: options, context: context) }
 
-  let(:registers) { { 'a' => "id,name\n1,bozo\n" } }
+  let(:registers) { { 'a' => 'abc' } }
   let(:context)   { Nocode::Context.new(registers: registers) }
-  let(:options)   { { 'register' => 'a' } }
+  let(:options)   { { 'register' => 'a', 'entries' => %w[a b c] } }
 
-  it 'deserializes register contents as CSV' do
+  it 'takes all the values from the from_registers and combines them altogether' do
     step.perform
 
-    expected = [
-      { 'id' => '1', 'name' => 'bozo' }
-    ]
+    expected = %w[abc a b c]
 
     expect(context.register('a')).to eq(expected)
   end

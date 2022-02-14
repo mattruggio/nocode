@@ -2,19 +2,17 @@
 
 require 'spec_helper'
 
-describe Nocode::Steps::Deserialize::Csv do
+describe Nocode::Steps::Dataset::Range do
   subject(:step)  { described_class.new(options: options, context: context) }
 
-  let(:registers) { { 'a' => "id,name\n1,bozo\n" } }
+  let(:registers) { { 'a' => [0, 1, 2, 3, 4, 5] } }
   let(:context)   { Nocode::Context.new(registers: registers) }
-  let(:options)   { { 'register' => 'a' } }
+  let(:options)   { { 'register' => 'a', 'start_index' => 2, 'end_index' => 4 } }
 
-  it 'deserializes register contents as CSV' do
+  it 'preserves the elements from the start_index to end_index' do
     step.perform
 
-    expected = [
-      { 'id' => '1', 'name' => 'bozo' }
-    ]
+    expected = [2, 3, 4]
 
     expect(context.register('a')).to eq(expected)
   end

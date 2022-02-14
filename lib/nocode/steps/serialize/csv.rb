@@ -27,14 +27,8 @@ module Nocode
 
           if object.is_a?(Array)
             csv << object
-
-            true
           elsif object.respond_to?(:values)
             csv << object.values
-
-            true
-          else
-            false
           end
         end
       end

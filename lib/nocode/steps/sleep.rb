@@ -3,6 +3,8 @@
 module Nocode
   module Steps
     # Sleep for an arbitrary number of seconds.
+    #
+    # Mechanic: https://apidock.com/ruby/Kernel/sleep
     class Sleep < Step
       option :seconds
 

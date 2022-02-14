@@ -1,7 +1,11 @@
+#### 0.0.5 - February 13th, 2022
+
+* Added initial Dataset steps.
+
 #### 0.0.4 - February 13th, 2022
 
 * Increase class documentation
-* Add YAML serialization/deserializationß
+* Add YAML serialization/deserialization
 
 #### 0.0.3 - February 12th, 2022
 

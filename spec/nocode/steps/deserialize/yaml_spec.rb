@@ -17,7 +17,7 @@ describe Nocode::Steps::Deserialize::Yaml do
   let(:context)   { Nocode::Context.new(registers: registers) }
   let(:options)   { { 'register' => 'a' } }
 
-  it 'copies register value to another register' do
+  it 'deserializes register contents as YAML' do
     step.perform
 
     expected = [
