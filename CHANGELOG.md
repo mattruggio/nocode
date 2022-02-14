@@ -1,3 +1,8 @@
+#### 0.0.6 - February 13th, 2022
+
+* Expose registers to main YAML configuration.
+* Add Each step to serve as an example of an iterator.
+
 #### 0.0.5 - February 13th, 2022
 
 * Added initial Dataset steps.

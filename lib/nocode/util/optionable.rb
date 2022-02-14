@@ -23,6 +23,14 @@ module Nocode
 
       # Class-level DSL Methods
       module ClassMethods
+        def skip_options_evaluation?
+          @skip_options_evaluation || false
+        end
+
+        def skip_options_evaluation!
+          @skip_options_evaluation = true
+        end
+
         def option(*values)
           values.each { |v| options << v.to_s }
         end

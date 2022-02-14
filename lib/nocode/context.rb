@@ -4,7 +4,12 @@ module Nocode
   # Describes the environment for each running step.  An instance is initialized when a job
   # kicks off and then is passed from step to step.
   class Context
-    attr_reader :io, :parameters, :registers
+    PARAMETERS_KEY = 'parameters'
+    REGISTERS_KEY  = 'registers'
+
+    attr_reader :io,
+                :parameters,
+                :registers
 
     def initialize(io: $stdout, parameters: {}, registers: {})
       @io         = io || $stdout
@@ -24,8 +29,8 @@ module Nocode
 
     def to_h
       {
-        'registers' => registers,
-        'parameters' => parameters
+        REGISTERS_KEY => registers,
+        PARAMETERS_KEY => parameters
       }
     end
   end

@@ -94,7 +94,7 @@ describe Nocode do
     it 'produces registers' do
       context   = described_class.execute(pathname, io: io)
       actual    = context.register('files')
-      expected  = "id,name\n1,bozo\n2,hops\n3,rizzo\n4,vader\n"
+      expected  = "id,name\n-1,existing\n0,bunny\n1,bozo\n2,hops\n3,rizzo\n4,vader\n"
 
       expect(actual).to eq(expected)
     end

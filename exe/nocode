@@ -4,6 +4,8 @@
 require 'bundler/setup'
 require 'nocode'
 
+require 'pry'
+
 path = ARGV[0]
 
 if path.to_s.empty?

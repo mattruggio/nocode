@@ -1,39 +1,54 @@
 parameters:
-  input_filename: people.csv
-  input_filename2: people2.csv
   output_filename: people3.csv
 
-steps:
-  - type: io/read
-    name: READ FILE << parameters.input_filename >>
-    options:
-      register: file1
-      path:
-        - spec
-        - fixtures
-        - << parameters.input_filename >>
-  - type: deserialize/csv
-    options:
-      register: file1
+registers:
+  other:
+    - id: -1
+      name: existing
+  input_files:
+    - people.csv
+    - people2.csv
 
-  - type: io/read
-    name: READ FILE << parameters.input_filename2 >>
+steps:
+  - type: set
     options:
-      register: file2
-      path:
-        - spec
-        - fixtures
-        - << parameters.input_filename2 >>
-  - type: deserialize/csv
-    options:
-      register: file2
+      register: default
+      value:
+        - id: 0
+          name: bunny
 
   - type: dataset/coalesce
     options:
       from_registers:
-        - file1
-        - file2
+        - other
+        - default
       to_register: files
+
+  - type: log
+    options:
+      message: About to read these << registers.input_files >>
+
+  - type: each
+    options:
+      register: input_files
+      element_register_prefix:
+      steps:
+        - type: io/read
+          name: READ FILE << registers._element >> [ << registers._index >> ]
+          options:
+            register: << registers._element >>
+            path:
+              - spec
+              - fixtures
+              - << registers._element >>
+        - type: deserialize/csv
+          options:
+            register: << registers._element >>
+        - type: dataset/coalesce
+          options:
+            from_registers: << registers._element >>
+            to_register: files
+
 
   - type: serialize/csv
     options:
