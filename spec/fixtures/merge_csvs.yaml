@@ -5,11 +5,17 @@ registers:
   other:
     - id: -1
       name: existing
-  input_files:
-    - people.csv
-    - people2.csv
 
 steps:
+  - type: io/list
+    options:
+      register: input_files
+      path:
+        - spec
+        - fixtures
+        - input
+        - '*'
+
   - type: set
     options:
       register: default
@@ -38,8 +44,6 @@ steps:
           options:
             register: << registers._element >>
             path:
-              - spec
-              - fixtures
               - << registers._element >>
         - type: deserialize/csv
           options:

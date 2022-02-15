@@ -5,7 +5,10 @@ module Nocode
     # Iterate over a register.  Each iteration will store the current element and index in
     # special registers called: _element and _index.  You can prefix these registers by setting
     # the element_register_prefix option.
-    class Each < Step
+    #
+    # The main difference between this and 'each' is that this will collect the iterator
+    # element register and set the register to this new collection.
+    class Map < Step
       option :element_register_prefix,
              :register,
              :steps
@@ -13,11 +16,13 @@ module Nocode
       skip_options_evaluation!
 
       def perform
-        entries.each_with_index do |entry, index|
+        registers[register_option] = entries.map.with_index do |entry, index|
           registers[element_key] = entry
           registers[index_key]   = index
 
           execute_steps
+
+          registers[element_key]
         end
       end
 

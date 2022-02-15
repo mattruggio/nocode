@@ -1,3 +1,10 @@
+
+#### 0.0.8 - February 14th, 2022
+
+* Add `map` step to iterate and collect a dataset result.
+* Add `record/map` step to iterate over a hash.
+* Add `io/list` to populate a register with the contents of a directory.
+* Add `io/delete` to delete a file specified in the path option.
 #### 0.0.7 - February 13th, 2022
 
 * Move shared logging logic to context (until a first class log writer emerges).
@@ -6,11 +13,11 @@
 #### 0.0.6 - February 13th, 2022
 
 * Expose registers to main YAML configuration.
-* Add Each step to serve as an example of an iterator.
+* Add `each` step to serve as an example of an iterator.
 
 #### 0.0.5 - February 13th, 2022
 
-* Added initial Dataset steps.
+* Added initial `dataset` steps.
 
 #### 0.0.4 - February 13th, 2022
 
