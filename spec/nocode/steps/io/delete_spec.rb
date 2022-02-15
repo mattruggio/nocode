@@ -11,6 +11,8 @@ describe Nocode::Steps::Io::Delete do
   let(:dest_path) { File.join('tmp', 'delete_me.csv') }
 
   it 'deletes specified paths' do
+    FileUtils.mkdir_p('tmp')
+
     FileUtils.cp(
       File.join('spec', 'fixtures', 'people.csv'),
       dest_path
