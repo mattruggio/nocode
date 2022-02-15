@@ -13,8 +13,8 @@ describe Nocode::Steps::Io::List do
     step.perform
 
     expected = [
-      'spec/fixtures/input/people2.csv',
-      'spec/fixtures/input/people1.csv'
+      'spec/fixtures/input/a.csv',
+      'spec/fixtures/input/b.csv'
     ]
 
     expect(context.register('a')).to match_array(expected)
