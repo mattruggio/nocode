@@ -33,7 +33,7 @@ module Nocode
     private
 
     def make_step(step)
-      evaluated_step = Util::ObjectTemplate.new(step).evaluate(context.to_h)
+      evaluated_step = Nay.evaluate(step, context.to_h)
       type           = evaluated_step[TYPE_KEY].to_s
       name           = evaluated_step[NAME_KEY].to_s
       step_class     = StepRegistry.constant!(type)

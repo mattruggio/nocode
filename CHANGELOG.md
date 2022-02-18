@@ -1,3 +1,6 @@
+#### 0.0.10 - February 18th, 2022
+
+* Replace ObjectTemplate with Nay library.
 #### 0.0.9 - February 18th, 2022
 
 * Replace StringTemplate with Nay library.
