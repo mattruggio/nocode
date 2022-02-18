@@ -1,4 +1,6 @@
+#### 0.0.9 - February 18th, 2022
 
+* Replace StringTemplate with Nay library.
 #### 0.0.8 - February 14th, 2022
 
 * Add `map` step to iterate and collect a dataset result.
