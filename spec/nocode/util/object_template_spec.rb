@@ -39,7 +39,7 @@ describe Nocode::Util::ObjectTemplate do
     context 'when expression is a hash' do
       let(:object) do
         {
-          '<< key_a >>' => ['<< a >>'],
+          '<< "key_a" >>' => ['<< a >>'],
           'b' => '<< b >>'
         }
       end

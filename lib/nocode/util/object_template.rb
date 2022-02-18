@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'string_template'
-
 module Nocode
   module Util
     # Built on top of StringTemplate but instead of only working for a string, this will
@@ -34,7 +32,7 @@ module Nocode
             [recursive_evaluate(k, values), recursive_evaluate(v, values)]
           end
         when String
-          Util::StringTemplate.new(expression).evaluate(values)
+          Nay.evaluate(expression, values)
         else
           expression
         end

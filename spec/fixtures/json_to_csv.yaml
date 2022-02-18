@@ -9,7 +9,7 @@ steps:
       path:
         - spec
         - fixtures
-        - << parameters.input_filename >>
+        - << parameters."input_filename" >>
   - type: deserialize/json
   - type: serialize/csv
   - type: io/write
@@ -17,4 +17,4 @@ steps:
       path:
         - tmp
         - spec
-        - << parameters.output_filename >>
+        - << parameters."output_filename" >>
