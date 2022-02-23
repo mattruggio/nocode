@@ -60,7 +60,7 @@ Nocode.execute(path)
 Or use bundler:
 
 ````zsh
-bundle exec nocode `nocode-csv-to-json.yaml
+bundle exec nocode nocode-csv-to-json.yaml
 ````
 
 A file should have been created at: `files/output.json`.
