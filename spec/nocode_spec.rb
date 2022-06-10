@@ -83,6 +83,18 @@ describe Nocode do
   describe 'merge_csvs.yaml' do
     let(:path) { File.join('spec', 'fixtures', 'merge_csvs.yaml') }
 
+    let(:expected_parts) do
+      %w[
+        id,name
+        -1,existing
+        0,bunny
+        1,bozo
+        2,hops
+        3,rizzo
+        4,vader
+      ]
+    end
+
     it 'produces files' do
       described_class.execute(pathname, io: io)
 
@@ -92,11 +104,12 @@ describe Nocode do
     end
 
     it 'produces registers' do
-      context   = described_class.execute(pathname, io: io)
-      actual    = context.register('files')
-      expected  = "id,name\n-1,existing\n0,bunny\n1,bozo\n2,hops\n3,rizzo\n4,vader\n"
+      context = described_class.execute(pathname, io: io)
+      actual  = context.register('files')
 
-      expect(actual).to eq(expected)
+      expected_parts.each do |expected_part|
+        expect(actual).to include(expected_part)
+      end
     end
   end
 end
