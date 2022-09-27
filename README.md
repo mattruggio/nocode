@@ -4,7 +4,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/nocode.svg)](https://badge.fury.io/rb/nocode) [![Ruby Gem CI](https://github.com/mattruggio/nocode/actions/workflows/rubygem.yml/badge.svg)](https://github.com/mattruggio/nocode/actions/workflows/rubygem.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/66479dae44129c87dc88/maintainability)](https://codeclimate.com/github/mattruggio/nocode/maintainability) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is a proof of concept showing how a YAML interface could be draped over arbitrary Ruby code.  The YAML contains a series of steps with each step mapping to a specific Ruby class.  The Ruby classes just have one responsibility: to implement #perform.
+Nocode is a library that provides a YAML interface draped over arbitrary Ruby code.  The YAML contains a series of steps with each step mapping to a specific Ruby class.  The Ruby classes just have one responsibility: to implement #perform.
 
 ## Installation
 
